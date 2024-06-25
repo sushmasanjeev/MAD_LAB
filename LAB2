@@ -1,31 +1,44 @@
 activity_main.xml
 
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
- xmlns:app="http://schemas.android.com/apk/res-auto"
- xmlns:tools="http://schemas.android.com/tools"
- android:id="@+id/main"
- android:layout_width="match_parent"
- android:layout_height="match_parent"
- tools:context=".MainActivity">
- <Button
- android:id="@+id/por"
- android:layout_width="wrap_content"
- android:layout_height="wrap_content"
- android:text="Portrait"
- android:layout_centerInParent="true"/>
- <Button
- android:id="@+id/lan"
- android:layout_width="wrap_content"
- android:layout_height="wrap_content"
- android:text="Landscape"
- android:layout_below="@id/por"
- android:layout_centerInParent="true"/>
-</RelativeLayout>
+	<androidx.constraintlayout.widget.ConstraintLayout 	xmlns:android="http://schemas.android.com/apk/res/android"
+   	 xmlns:app="http://schemas.android.com/apk/res-auto"
+   	 xmlns:tools="http://schemas.android.com/tools"
+    	android:layout_width="match_parent"
+    	android:layout_height="match_parent"
+    	tools:context=".MainActivity">
+
+   	 <Button
+        	android:id="@+id/por"
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:layout_centerInParent="true"
+        	android:text="Portrait"
+        	app:layout_constraintBottom_toBottomOf="parent"
+        	app:layout_constraintEnd_toEndOf="parent"
+        	app:layout_constraintStart_toStartOf="parent"
+        	app:layout_constraintTop_toTopOf="parent"
+       	tools:ignore="MissingConstraints" />
+
+    	<Button
+        	android:id="@+id/lan"
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:layout_below="@id/por"
+        	android:layout_centerInParent="true"
+        	android:text="Landscape"
+        	app:layout_constraintBottom_toBottomOf="parent"
+        	app:layout_constraintEnd_toEndOf="parent"
+        	app:layout_constraintStart_toStartOf="parent"
+        	app:layout_constraintTop_toTopOf="parent"
+        	tools:ignore="MissingConstraints" />
+
+	</androidx.constraintlayout.widget.ConstraintLayout>
 
 MainActivity.java
 
-package com.example.screen;
+package com.example.a2ndprogram;
+
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.View;
@@ -37,31 +50,30 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 public class MainActivity extends AppCompatActivity {
- @Override
- protected void onCreate(Bundle savedInstanceState) {
- super.onCreate(savedInstanceState);
- EdgeToEdge.enable(this);
- setContentView(R.layout.activity_main);
- Button l,p;
- l=findViewById(R.id.lan);
- p=findViewById(R.id.por);
- l.setOnClickListener(new View.OnClickListener() {
- @Override
- public void onClick(View v) {
- 
-setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
- Toast.makeText(MainActivity.this, "Hey! We are in Landscape 
-orientation", Toast.LENGTH_SHORT).show();
- }
- });
- p.setOnClickListener(new View.OnClickListener() {
- @Override
- public void onClick(View v) {
- 
-setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
- Toast.makeText(MainActivity.this, "Hey! We are in Portrait orientation", 
-Toast.LENGTH_SHORT).show();
- }
- });
- }
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this);
+        setContentView(R.layout.activity_main);
+        Button l, p;
+        l=findViewById(R.id.lan);
+        p=findViewById(R.id.por);
+        l.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+                Toast.makeText(MainActivity.this, "Hey! We are in Landscape orientation", 	Toast.LENGTH_SHORT).show();
+            }
+        });
+        p.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+                Toast.makeText(MainActivity.this, "Hey! We are in Portrait orientation",
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
 }
