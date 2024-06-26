@@ -34,7 +34,7 @@ activity_main.xml
         android:id="@+id/buttonSend"
         android:layout_height="wrap_content"
         android:layout_below="@id/editTextMessage"
-        android:text="Send" />
+        android:text="Send"  android:layout_width="wrap_content"/>
 </RelativeLayout>
 
 MainActivity.java
